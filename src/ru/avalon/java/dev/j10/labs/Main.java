@@ -8,11 +8,10 @@ import ru.avalon.java.dev.j10.labs.shapes.Triangle;
 public class Main {
 
     public static void main(String[] args) {
-        ;
         
         Circle circle1 = new Circle(52);
         Circle circle2 = new Circle(15, 42);
-        Circle circle3 = new Circle(32, 24);
+        Circle circle3 = new Circle(50, 60);
         Rectangle rectangle1 = new Rectangle(21);
         Rectangle rectangle2 = new Rectangle(10, 32);
         Rectangle rectangle3 = new Rectangle(9, 15);
@@ -21,6 +20,11 @@ public class Main {
         Triangle triangle3 = new Triangle(15, 21, 4);
         
         Shape[] shapes = {circle1,rectangle2, triangle3,circle2,rectangle3, triangle1,circle3,rectangle1, triangle2};
+
+        for (Shape shape: shapes){
+            System.out.println(shape.getClass()+" "+shape.getArea());
+        }
+        System.out.println("Максимальная площадь: "+getMaxArea(shapes).getArea());
 
         /*
          * TODO: Выполнить действия над массивом 'shapes'
@@ -36,5 +40,15 @@ public class Main {
          */
         
         
+    }
+
+    public static Shape getMaxArea(Shape[] shapes){
+        Shape max = shapes[0];
+        for(int i = 0; i < shapes.length; i++){
+            if(max.getArea() < shapes[i].getArea()){
+                max = shapes[i];
+            }
+        }
+        return max;
     }
 }
