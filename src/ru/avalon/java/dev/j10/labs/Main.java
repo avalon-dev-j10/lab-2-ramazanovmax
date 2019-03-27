@@ -9,17 +9,18 @@ public class Main {
 
     public static void main(String[] args) {
         
-        Circle circle1 = new Circle(52);
-        Circle circle2 = new Circle(15, 42);
-        Circle circle3 = new Circle(50, 60);
-        Rectangle rectangle1 = new Rectangle(21);
-        Rectangle rectangle2 = new Rectangle(10, 32);
-        Rectangle rectangle3 = new Rectangle(9, 15);
-        Triangle triangle1 = new Triangle(15);
-        Triangle triangle2 = new Triangle(12, 10);
-        Triangle triangle3 = new Triangle(15, 21, 4);
-        
-        Shape[] shapes = {circle1,rectangle2, triangle3,circle2,rectangle3, triangle1,circle3,rectangle1, triangle2};
+        Shape[] shapes = new Shape[10];
+
+        for(int i=0;i < 10;i++){
+            byte rand = (byte) (Math.random() * 3);
+            if(rand == 0){
+                shapes[i] = new Circle((int)(Math.random()*100));
+            }else if(rand == 1){
+                shapes[i] = new Rectangle((int)(Math.random()*100));
+            }else if(rand == 2){
+                shapes[i] = new Triangle((int)(Math.random()*100));
+            }
+        }
 
         for (Shape shape: shapes){
             System.out.println(shape.getClass()+" "+shape.getArea());
@@ -38,7 +39,8 @@ public class Main {
          *    площадью. Для поиска фигуры необходимо создать
          *    статический метод в текущем классе (Main).
          */
-        
+
+
         
     }
 
